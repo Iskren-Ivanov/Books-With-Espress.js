@@ -9,11 +9,11 @@ function guid() {
         return v.toString(8);
     })
     return parseInt(x);
-}
+};
 
 const dataBase = [
     { title: "The Intelligent Investor", rating: 4.1, id: guid() },
-    { title: "Harry Potter and the Philosopher's Stone", rating: 4.9, id: guid()},
+    { title: "Harry Potter and the Philosopher's Stone", rating: 4.9, id: guid() },
     { title: "Shantaram", rating: 4.5, id: guid() },
 ];
 
@@ -39,7 +39,7 @@ app.get('/books/:id', (req, res) => {
         res.send(book);
     } else {
         res.send('Not Found');
-    }
+    };
 });
 
 app.post('/books', function (req, res) {
@@ -47,7 +47,8 @@ app.post('/books', function (req, res) {
         title: req.body.title,
         rating: req.body.rating,
         id: guid()
-    }
+    };
+
     dataBase.push(newBook);
     res.send(newBook);
 });
@@ -66,8 +67,7 @@ app.put('/books/:id', function (req, res) {
         res.send(dataBase);
     } else {
         res.status(400).send({ error: "Book not found" });
-    }
-
+    };
 });
 
 app.delete('/books', function (req, res) {
